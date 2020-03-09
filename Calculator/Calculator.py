@@ -3,6 +3,7 @@ from Calculator.Addition import addition
 from Calculator.Division import division
 from Calculator.Power import power
 from Calculator.Root import root
+from Calculator.Multiplication import product
 
 
 class Calculator:
@@ -29,4 +30,8 @@ class Calculator:
 
     def root(self, a, b):
         self.result = root(a,b)
+        return self.result
+
+    def multiply(self, a, b):
+        self.result = product(a,b)
         return self.result

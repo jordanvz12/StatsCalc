@@ -12,14 +12,15 @@ class RandomNums:
         self.randomInteger = random.randint(1,50)
         return self.randomInteger
 
+#choices
     def RandDecNoSeed(self):
-        self.randomDecimal = random.choice(range(Decimal(1.55,3.89)))
+        self.randomDecimal = random.random()
         return self.randomDecimal
 
     #Generate a random number with a seed between a range of two numbers - Both Integer and Decimal
     def RandIntSeed(self):
         random.seed(3)
-        self.randomInt = random.randint()
+        self.randomInt = random.randint(1, 50)
         return self.randomInt
 
     def RandDecSeed(self):
@@ -30,7 +31,7 @@ class RandomNums:
 
     #Generate a list of N random numbers with a seed and between a range of numbers - Both Integer and Decimal
     def RangeNums(self):
-        random.seed(5)
+        random.seed(50)
         randomNumbers = []
         n = sum(randomNumbers)
         i = 0
@@ -44,15 +45,28 @@ class RandomNums:
     def RandomItem(self):
         numberList = [134535, 5456464, 35435, 5646, 1212]
         randomChoice = random.choice(numberList)
-        print(randomChoice)
+        return randomChoice
 
     #5. Set a seed and randomly.select the same value from a list
-        random.seed(3)
-        sameRandom = random.choice(numberList)
-        print(sameRandom)
+    def RandomSelect(self):
+        valueList = [343, 35, 4545, 5656, 56565]
+        random.seed(4)
+        sameRandom = random.choice(valueList)
+        return sameRandom
 
 
     #Select N number of items from a list without a seed
+    def NItemsNoSeed(self, populationList, numSelect):
+        self.sampleList = []
+        random.shuffle(populationList)
+        self.sampleList = random.sample(populationList, numSelect)
+        return self.sampleList
 
 
     #Select N number of items from a list with a seed
+    def NItemsSeed(self, populationList, numSelect):
+        self.sampleList = []
+        random.seed(10)
+        random.shuffle(populationList)
+        self.sampleList = random.sample(populationList, numSelect)
+        return self.sampleList

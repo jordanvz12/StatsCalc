@@ -11,12 +11,29 @@ class MyTestCase(unittest.TestCase):
     def test_instantiate_calculator(self):
         self.assertIsInstance(self.calculator, Calculator)
 
+    def test_addition(self):
+        add = self.calculator.add(4 ,6)
+        self.assertEqual(add, 10)
+
     def test_subtraction(self):
-        test_data = CsvReader("Tests/Data/subtraction.csv").data
-        for row in test_data:
-            result = float(row['Result'])
-            self.assertEqual(self.calculator.subtract(row['Value 1'], row['Value 2']), result)
-            self.assertEqual(self.calculator.result, result)
+        subtract = self.calculator.subtract(6 ,3)
+        self.assertEqual(subtract, 3)
+
+    def test_division(self):
+        divide = self.calculator.divide(10, 2)
+        self.assertEqual(divide, 5)
+
+    def test_multiplication(self):
+        product = self.calculator.multiply(3, 3)
+        self.assertEqual(product, 9)
+
+    def test_power(self):
+        power = self.calculator.square(3, 2)
+        self.assertEqual(power, 9)
+
+    def test_root(self):
+        root = self.calculator.root(9, 2)
+        self.assertEqual(root, 3)
 
     def test_results_property(self):
         self.assertEqual(self.calculator.result, 0)
